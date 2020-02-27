@@ -16,7 +16,7 @@ class ReactFeed extends Component {
   likeHandler = index => {
     let postsAux = [...this.state.posts];
 
-	postsAux[index].likes += 1;
+	//postsAux[index].likes += 1;
 	
 	const config = {
 		method: "PUT",
@@ -27,7 +27,7 @@ class ReactFeed extends Component {
 		body: JSON.stringify(postsAux[index])
 	}
 
-	fetch('https://reactcourseapi.herokuapp.com/post/', config)
+	fetch('https://reactcourseapi.herokuapp.com/post/like', config)
 		.then(res => {this.fetchData()})
 		
   }
