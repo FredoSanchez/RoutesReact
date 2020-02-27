@@ -1,5 +1,6 @@
 import React, {Component} from 'react';
 import Post from './Post'
+import {Helmet} from "react-helmet"
 
 class ReactFeed extends Component {
   constructor(props){
@@ -69,14 +70,20 @@ class ReactFeed extends Component {
     });
   
     return (
-      <div className = "container">
-        <h1 className="display-3">ReactFeed</h1>
-        <h2>Recent posts</h2>
-  
-        <div className="posts">
-          {postsComponents}
+      <>
+        <Helmet>
+          <title>REact Feed</title>
+        </Helmet>
+        <button>Logout</button>
+        <div className = "container">
+          <h1 className="display-3">ReactFeed</h1>
+          <h2>Recent posts</h2>
+    
+          <div className="posts">
+            {postsComponents}
+          </div>
         </div>
-      </div>
+      </>
     );
   }
 }
