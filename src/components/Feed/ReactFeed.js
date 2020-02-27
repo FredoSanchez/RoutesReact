@@ -1,5 +1,6 @@
 import React, {Component} from 'react';
 import Post from './Post'
+import {withRouter} from 'react-router-dom'
 import {Helmet} from "react-helmet"
 
 class ReactFeed extends Component {
@@ -29,6 +30,11 @@ class ReactFeed extends Component {
 	fetch('https://reactcourseapi.herokuapp.com/post/', config)
 		.then(res => {this.fetchData()})
 		
+  }
+
+  logoutHandler = () => {
+    localStorage.clear()
+    this.props.history.push("/login")
   }
 
   fetchData = () => {
@@ -72,9 +78,9 @@ class ReactFeed extends Component {
     return (
       <>
         <Helmet>
-          <title>REact Feed</title>
+          <title>React Feed</title>
         </Helmet>
-        <button>Logout</button>
+        <button onClick = {this.logoutHandler}>Logout</button>
         <div className = "container">
           <h1 className="display-3">ReactFeed</h1>
           <h2>Recent posts</h2>
@@ -88,4 +94,4 @@ class ReactFeed extends Component {
   }
 }
 
-export default ReactFeed;
+export default withRouter(ReactFeed);
