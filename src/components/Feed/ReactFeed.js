@@ -19,6 +19,10 @@ class ReactFeed extends Component {
 	  posts: [],
     token: localStorage.getItem("token"),
     }
+
+    this.submitHandler = this.submitHandler.bind(this)
+    //this.changeHandler = this.changeHandler.bind(this)
+
   }
 
   changeHandler = (event) => {
@@ -41,10 +45,12 @@ class ReactFeed extends Component {
 
     try {
       await axios.post('https://reactcourseapi.herokuapp.com/post/', {title, text, image}, config)
-      this.setState(...initValues)
+      this.setState({...initValues})
+      this.fetchData();
+
     } catch ({response}) {
-      const {data} = response
-      console.log(data.message)
+      //const {data} = response
+      //console.log(data)
       
     }
   }
