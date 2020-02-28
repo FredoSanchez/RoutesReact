@@ -1,5 +1,5 @@
 import React, {Component} from 'react';
-import {withRouter} from 'react-router-dom'
+import {withRouter, Link} from 'react-router-dom'
 import {Helmet} from 'react-helmet'
 
 const initState = {
@@ -102,6 +102,9 @@ class Register extends Component{
 							</div>
 							<button className="btn btn-primary" type="submit">Sign up</button>
 						</form>
+						<Link to="/login">
+							<button>Iniciar sesion</button>
+						</Link>
 						{this.state.errorFlag && 
 							<div className="alert alert-dismissible alert-danger">
 								<strong>Oh snap!</strong> Hubo un error en el registro de usuario.
